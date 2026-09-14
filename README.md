@@ -15,7 +15,7 @@
     <img src="docs/assets/hero.svg" alt="Logo">
   </a>
 
-  <h3 align="center">Open Notebook</h3>
+  <h3 align="center">CASTANOTE</h3>
 
   <p align="center">
     An open source, privacy-focused alternative to Google's Notebook LM!
@@ -54,13 +54,41 @@
   <a href="https://zdoc.app/zh/lfnovo/open-notebook">中文</a>
 </div>
 
+## 🌰 About This Fork
+
+**CASTANOTE** is a personal fork of [Open Notebook](https://github.com/lfnovo/open-notebook) by [Luis Novo](https://github.com/lfnovo) — the upstream project and its community live there. This fork exists to run the same engine under CASTANOTE branding; all real credit and the original project belong upstream.
+
+The repo is organised so the fork stays a thin, conflict-resistant overlay on upstream:
+
+| Branch | Purpose |
+|--------|---------|
+| `main` | **Clean sync branch.** Tracks [`upstream/main`](https://github.com/lfnovo/open-notebook) exactly — no local changes ever land here. |
+| `castanote` | **Branding overlay.** A short stack of rebrand commits (UI strings, titles, README, LICENSE attribution) sitting on top of `main`. This is the default branch you run and install from. |
+
+The overlay only touches *visible* product-name strings. Functional identifiers — the `open_notebook` Python package, `OPEN_NOTEBOOK_*` env vars, Docker image names, documentation and repository URLs — intentionally stay as upstream so the fork keeps working and the diff stays minimal.
+
+### Syncing with upstream
+
+```bash
+git fetch upstream                 # lfnovo/open-notebook
+git checkout main
+git merge --ff-only upstream/main  # keep main a pure mirror
+git push origin main
+
+git checkout castanote
+git rebase main                    # replay the branding overlay on the new base
+git push --force-with-lease origin castanote
+```
+
+Because the overlay is branding-only, rebasing is normally conflict-free. If upstream ever edits one of the rebranded strings, resolve in favour of upstream's new text and re-apply the name swap.
+
 ## A private, multi-model, 100% local, full-featured alternative to Notebook LM
 
 ![New Notebook](docs/assets/asset_list.png)
 
 In a world dominated by Artificial Intelligence, having the ability to think 🧠 and acquire new knowledge 💡, is a skill that should not be a privilege for a few, nor restricted to a single provider.
 
-**Open Notebook empowers you to:**
+**CASTANOTE empowers you to:**
 - 🔒 **Control your data** - Keep your research private and secure
 - 🤖 **Choose your AI models** - 20+ providers including OpenAI, Anthropic, Google, Mistral, Ollama and any OpenAI-compatible server (LM Studio, vLLM)
 - 📚 **Organize multi-modal content** - PDFs, videos, audio, web pages, and more
@@ -73,9 +101,9 @@ Learn more about our project at [https://www.open-notebook.ai](https://www.open-
 
 ---
 
-## 🆚 Open Notebook vs Google Notebook LM
+## 🆚 CASTANOTE vs Google Notebook LM
 
-| Feature | Open Notebook | Google Notebook LM | Advantage |
+| Feature | CASTANOTE | Google Notebook LM | Advantage |
 |---------|---------------|--------------------|-----------|
 | **Privacy & Control** | Self-hosted, your data | Google cloud only | Complete data sovereignty |
 | **AI Provider Choice** | 20+ providers, cloud or local (OpenAI, Anthropic, Google, Ollama, LM Studio, etc.) | Google models only | Flexibility and cost optimization |
@@ -87,7 +115,7 @@ Learn more about our project at [https://www.open-notebook.ai](https://www.open-
 | **Customization** | Open source, fully customizable | Closed system | Unlimited extensibility |
 | **Cost** | Pay only for AI usage | Free tier + Monthly subscription | Transparent and controllable |
 
-**Why Choose Open Notebook?**
+**Why Choose CASTANOTE?**
 - 🔒 **Privacy First**: Your sensitive research stays completely private
 - 💰 **Cost Control**: Choose cheaper AI providers or run locally with Ollama
 - 🎙️ **Better Podcasts**: Full script control and multi-speaker flexibility vs limited 2-speaker deep-dive format
@@ -231,7 +259,7 @@ Thanks to the [Esperanto](https://github.com/lfnovo/esperanto) library, we suppo
 ## 📚 Documentation
 
 ### Getting Started
-- **[📖 Introduction](docs/0-START-HERE/index.md)** - Learn what Open Notebook offers
+- **[📖 Introduction](docs/0-START-HERE/index.md)** - Learn what CASTANOTE offers
 - **[⚡ Quick Start with a Cloud Provider](docs/0-START-HERE/quick-start-cloud.md)** - OpenAI, Anthropic, Google and more in 5 minutes
 - **[🔧 Installation](docs/1-INSTALLATION/index.md)** - Comprehensive setup guide
 - **[🎯 Run It Fully Local](docs/0-START-HERE/quick-start-local.md)** - Ollama/LM Studio, completely private
@@ -252,7 +280,7 @@ Thanks to the [Esperanto](https://github.com/lfnovo/esperanto) library, we suppo
 - **[🔧 REST API Reference](docs/7-DEVELOPMENT/api-reference.md)** - Complete API documentation
 - **[🔐 Security](docs/5-CONFIGURATION/security.md)** - Password protection and privacy
 - **[🚀 Deployment](docs/1-INSTALLATION/index.md)** - Complete deployment guides for all scenarios
-- **[🧭 Vision & Principles](VISION.md)** - What Open Notebook is, and where it's going
+- **[🧭 Vision & Principles](VISION.md)** - What CASTANOTE is, and where it's going
 - **[🛠️ Developer Docs](docs/7-DEVELOPMENT/index.md)** - Architecture, setup, contributing, decision records
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -267,8 +295,8 @@ Explore [GitHub Discussions](https://github.com/lfnovo/open-notebook/discussions
 
 
 ## 📖 Need Help?
-- **🤖 AI Installation Assistant**: We have a [CustomGPT built to help you install Open Notebook](https://chatgpt.com/g/g-68776e2765b48191bd1bae3f30212631-open-notebook-installation-assistant) - it will guide you through each step!
-- **New to Open Notebook?** Start with our [Getting Started Guide](docs/0-START-HERE/index.md)
+- **🤖 AI Installation Assistant**: We have an upstream [CustomGPT built to help you install Open Notebook](https://chatgpt.com/g/g-68776e2765b48191bd1bae3f30212631-open-notebook-installation-assistant) - it will guide you through each step!
+- **New to CASTANOTE?** Start with our [Getting Started Guide](docs/0-START-HERE/index.md)
 - **Need installation help?** Check our [Installation Guide](docs/1-INSTALLATION/index.md)
 - **Want to see it in action?** Try our [Quick Start Tutorial](docs/0-START-HERE/index.md)
 
@@ -279,12 +307,12 @@ Explore [GitHub Discussions](https://github.com/lfnovo/open-notebook/discussions
 - 𝕏 **[Follow @lfnovo on X](https://x.com/lfnovo)** - Project updates and news from the maintainer
 - 💡 **[GitHub Discussions](https://github.com/lfnovo/open-notebook/discussions)** - Ask questions and shape features, product direction, design, and architecture
 - 🐛 **[GitHub Issues](https://github.com/lfnovo/open-notebook/issues)** - Report reproducible bugs and find approved work
-- ⭐ **Star this repo** - Show your support and help others discover Open Notebook
+- ⭐ **Star this repo** - Show your support and help others discover CASTANOTE
 
 ### Contributing
 We welcome contributions! We're especially looking for help with:
 - **Frontend Development**: Help improve our modern Next.js/React UI
-- **Testing & Bug Fixes**: Make Open Notebook more robust
+- **Testing & Bug Fixes**: Make CASTANOTE more robust
 - **Feature Development**: Build the coolest research tool together
 - **Documentation**: Improve guides and tutorials
 
@@ -297,7 +325,12 @@ See our [Contributing Guide](CONTRIBUTING.md) for detailed information on how to
 
 ## 📄 License
 
-Open Notebook is MIT licensed. See the [LICENSE](LICENSE) file for details.
+CASTANOTE is MIT licensed, the same license as upstream. The [LICENSE](LICENSE) file carries **two** copyright notices, as MIT requires:
+
+- Copyright (c) 2024 Luis Novo — all original Open Notebook code
+- Copyright (c) 2026 castaso — the CASTANOTE branding overlay and modifications
+
+The MIT license explicitly permits this fork and rebrand, provided the upstream notice is preserved (it is). If you use or redistribute CASTANOTE, keep both notices. To contribute to the engine itself, please do it [upstream](https://github.com/lfnovo/open-notebook) — this fork wants to stay a thin branding layer.
 
 
 **Community Support**:
