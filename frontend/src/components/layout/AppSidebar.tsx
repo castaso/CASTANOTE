@@ -73,14 +73,30 @@ const getNavigation = (t: TFunction) => [
   },
 ] as const
 
-// The tri-hue mark recomposed in the owned palette: fern / gold / teal.
-function LogoPebbles({ className }: { className?: string }) {
+function BrandLogo({
+  collapsed = false,
+  className,
+}: {
+  collapsed?: boolean
+  className?: string
+}) {
+  if (collapsed) {
+    return (
+      <img
+        src="/logo-mark.svg"
+        alt=""
+        className={cn('h-8 w-8', className)}
+        aria-hidden="true"
+      />
+    )
+  }
+
   return (
-    <span className={cn('flex items-center gap-[3px]', className)} aria-hidden="true">
-      <span className="size-[9px] rounded-[3px] bg-fern" />
-      <span className="size-[9px] rounded-[3px] bg-gold" />
-      <span className="size-[9px] rounded-[3px] bg-teal" />
-    </span>
+    <img
+      src="/logo.svg"
+      alt="CASTANOTE"
+      className={cn('h-7 w-auto max-w-[168px]', className)}
+    />
   )
 }
 
@@ -139,7 +155,7 @@ export function AppSidebar() {
         >
           {isCollapsed ? (
             <div className="relative flex items-center justify-center w-full">
-              <LogoPebbles className="flex-col gap-[3px] transition-opacity group-hover:opacity-0" />
+              <BrandLogo collapsed className="transition-opacity group-hover:opacity-0" />
               <Button
                 variant="ghost"
                 size="sm"
@@ -151,11 +167,8 @@ export function AppSidebar() {
             </div>
           ) : (
             <>
-              <div className="flex items-center gap-2.5">
-                <LogoPebbles />
-                <span className="font-display text-[15px] font-bold tracking-tight text-sidebar-foreground">
-                  {t('common.appName')}
-                </span>
+              <div className="flex min-w-0 items-center">
+                <BrandLogo />
               </div>
               <Button
                 variant="ghost"

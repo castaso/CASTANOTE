@@ -141,11 +141,16 @@ export function LoginForm() {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle>{t('auth.loginTitle')}</CardTitle>
-          <CardDescription>
-            {t('auth.loginDesc')}
-          </CardDescription>
-        </CardHeader>
+            <img
+              src="/logo.svg"
+              alt="CASTANOTE"
+              className="mx-auto mb-3 h-10 w-auto max-w-[240px]"
+            />
+            <CardTitle className="sr-only">{t('auth.loginTitle')}</CardTitle>
+            <CardDescription>
+              {t('auth.loginDesc')}
+            </CardDescription>
+          </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>

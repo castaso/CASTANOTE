@@ -34,8 +34,7 @@ describe('AppSidebar', () => {
   it('renders correctly when expanded', () => {
     render(<AppSidebar />)
 
-    // With mocked t() returning keys, check for translation key strings
-    expect(screen.getByText('common.appName')).toBeDefined()
+    expect(screen.getByAltText('CASTANOTE')).toBeDefined()
     expect(screen.getByText('navigation.sources')).toBeDefined()
     expect(screen.getByText('navigation.notebooks')).toBeDefined()
   })
@@ -79,7 +78,6 @@ describe('AppSidebar', () => {
 
     render(<AppSidebar />)
 
-    // In collapsed mode, app name shouldn't be visible (as text)
-    expect(screen.queryByText('common.appName')).toBeNull()
+    expect(screen.queryByAltText('CASTANOTE')).toBeNull()
   })
 })
