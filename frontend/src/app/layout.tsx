@@ -32,7 +32,11 @@ const splineSansMono = Spline_Sans_Mono({
 
 export const metadata: Metadata = {
   title: "CASTANOTE",
+  applicationName: "CASTANOTE",
   description: "Privacy-focused research and knowledge management",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

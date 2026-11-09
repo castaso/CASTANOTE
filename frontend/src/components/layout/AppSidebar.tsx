@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { ThemeToggle } from '@/components/common/ThemeToggle'
 import { LanguageToggle } from '@/components/common/LanguageToggle'
+import { LogoMark } from './LogoMark'
 import type { TFunction } from 'i18next'
 import { useTranslation } from '@/lib/hooks/use-translation'
 import { Separator } from '@/components/ui/separator'
@@ -72,17 +73,6 @@ const getNavigation = (t: TFunction) => [
     ],
   },
 ] as const
-
-// The tri-hue mark recomposed in the owned palette: fern / gold / teal.
-function LogoPebbles({ className }: { className?: string }) {
-  return (
-    <span className={cn('flex items-center gap-[3px]', className)} aria-hidden="true">
-      <span className="size-[9px] rounded-[3px] bg-fern" />
-      <span className="size-[9px] rounded-[3px] bg-gold" />
-      <span className="size-[9px] rounded-[3px] bg-teal" />
-    </span>
-  )
-}
 
 type CreateTarget = 'source' | 'notebook' | 'podcast'
 
@@ -139,7 +129,7 @@ export function AppSidebar() {
         >
           {isCollapsed ? (
             <div className="relative flex items-center justify-center w-full">
-              <LogoPebbles className="flex-col gap-[3px] transition-opacity group-hover:opacity-0" />
+              <LogoMark className="transition-opacity group-hover:opacity-0" />
               <Button
                 variant="ghost"
                 size="sm"
@@ -152,7 +142,7 @@ export function AppSidebar() {
           ) : (
             <>
               <div className="flex items-center gap-2.5">
-                <LogoPebbles />
+                <LogoMark />
                 <span className="font-display text-[15px] font-bold tracking-tight text-sidebar-foreground">
                   {t('common.appName')}
                 </span>

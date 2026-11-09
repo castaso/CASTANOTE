@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { AlertCircle } from 'lucide-react'
 import { LoadingSpinner } from '@/components/common/LoadingSpinner'
+import { LogoMark } from '@/components/layout/LogoMark'
 import { useTranslation } from '@/lib/hooks/use-translation'
 
 export function LoginForm() {
@@ -141,6 +142,9 @@ export function LoginForm() {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
+          <div className="flex justify-center mb-3">
+            <LogoMark className="size-[36px]" />
+          </div>
           <CardTitle>{t('auth.loginTitle')}</CardTitle>
           <CardDescription>
             {t('auth.loginDesc')}
