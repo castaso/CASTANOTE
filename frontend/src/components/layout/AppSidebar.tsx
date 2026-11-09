@@ -23,7 +23,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { ThemeToggle } from '@/components/common/ThemeToggle'
 import { LanguageToggle } from '@/components/common/LanguageToggle'
-import { LogoMark } from './LogoMark'
+import { BrandLogo, BrandWordmark } from './Brand'
 import type { TFunction } from 'i18next'
 import { useTranslation } from '@/lib/hooks/use-translation'
 import { Separator } from '@/components/ui/separator'
@@ -129,7 +129,7 @@ export function AppSidebar() {
         >
           {isCollapsed ? (
             <div className="relative flex items-center justify-center w-full">
-              <LogoMark className="transition-opacity group-hover:opacity-0" />
+              <BrandLogo className="h-[26px] w-auto transition-opacity group-hover:opacity-0" />
               <Button
                 variant="ghost"
                 size="sm"
@@ -141,12 +141,7 @@ export function AppSidebar() {
             </div>
           ) : (
             <>
-              <div className="flex items-center gap-2.5">
-                <LogoMark />
-                <span className="font-display text-[15px] font-bold tracking-tight text-sidebar-foreground">
-                  {t('common.appName')}
-                </span>
-              </div>
+              <BrandWordmark className="h-[24px] w-auto" />
               <Button
                 variant="ghost"
                 size="sm"

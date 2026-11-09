@@ -12,10 +12,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/lfnovo/open-notebook">
-    <img src="docs/assets/hero.svg" alt="Logo">
+    <img src="docs/assets/wordmark.svg" alt="CASTANOTE" width="360">
   </a>
-
-  <h3 align="center">CASTANOTE</h3>
 
   <p align="center">
     An open source, privacy-focused alternative to Google's Notebook LM!

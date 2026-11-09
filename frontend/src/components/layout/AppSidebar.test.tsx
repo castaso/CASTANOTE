@@ -35,7 +35,7 @@ describe('AppSidebar', () => {
     render(<AppSidebar />)
 
     // With mocked t() returning keys, check for translation key strings
-    expect(screen.getByText('common.appName')).toBeDefined()
+    expect(screen.getByTestId('castanote-wordmark')).toBeDefined()
     expect(screen.getByText('navigation.sources')).toBeDefined()
     expect(screen.getByText('navigation.notebooks')).toBeDefined()
   })
@@ -79,7 +79,8 @@ describe('AppSidebar', () => {
 
     render(<AppSidebar />)
 
-    // In collapsed mode, app name shouldn't be visible (as text)
-    expect(screen.queryByText('common.appName')).toBeNull()
+    // In collapsed mode, wordmark shouldn't be visible, logo should
+    expect(screen.queryByTestId('castanote-wordmark')).toBeNull()
+    expect(screen.getByTestId('castanote-logo')).toBeDefined()
   })
 })
