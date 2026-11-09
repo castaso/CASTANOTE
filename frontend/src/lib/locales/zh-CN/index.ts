@@ -781,7 +781,7 @@ export const zhCN = {
     visionEnabled: "描述图片和图表",
     visionHelp: "使用 Docling 引擎时，使用视觉模型描述图片并提取图表数据。处理速度明显变慢，并且可能调用视觉模型。",
     autoDeletePlaceholder: "选择自动删除选项",
-    filesHelp: "文件上传并处理完成后就不再需要了。大多数用户应允许 Open Notebook 自动从上传文件夹中删除已上传的文件。",
+    filesHelp: "文件上传并处理完成后就不再需要了。大多数用户应允许 CASTANOTE 自动从上传文件夹中删除已上传的文件。",
     loadFailed: "加载设置失败",
   },
   advanced: {
